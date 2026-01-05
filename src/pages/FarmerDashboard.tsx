@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { DashboardHeader } from '@/components/shared/DashboardHeader';
 import { LivePriceTicker } from '@/components/shared/LivePriceTicker';
@@ -13,7 +13,8 @@ import { AddVehicleForm } from '@/components/shared/AddVehicleForm';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { mockCrops, mockCropPrices, mockWorkerJobs, mockTransactions, mockVehicles } from '@/data/mockData';
+import { mockCropPrices, mockTransactions } from '@/data/mockData';
+import { getAllCrops, addCrop, updateCrop, getAllWorkerJobs, addWorkerJob, getAllVehicles, addVehicle } from '@/data/sharedStore';
 import { Crop, WorkerJob, Transaction, Vehicle } from '@/types';
 import { ShoppingBag, Users, Plus, Package, Briefcase, IndianRupee, Tractor } from 'lucide-react';
 import { toast } from 'sonner';
@@ -24,14 +25,24 @@ export default function FarmerDashboard() {
   const [showSellForm, setShowSellForm] = useState(false);
   const [showTransactionForm, setShowTransactionForm] = useState(false);
   const [showVehicleForm, setShowVehicleForm] = useState(false);
-  const [myCrops, setMyCrops] = useState<Crop[]>(mockCrops.filter((c) => c.farmerId === '1'));
-  const [myJobs, setMyJobs] = useState<WorkerJob[]>(mockWorkerJobs.filter((j) => j.farmerId === '1'));
+  const [myCrops, setMyCrops] = useState<Crop[]>([]);
+  const [myJobs, setMyJobs] = useState<WorkerJob[]>([]);
   const [myTransactions, setMyTransactions] = useState<Transaction[]>(
     mockTransactions.filter((t) => t.userId === '1')
   );
-  const [myVehicles, setMyVehicles] = useState<Vehicle[]>(
-    mockVehicles.filter((v) => v.ownerId === '1')
-  );
+  const [myVehicles, setMyVehicles] = useState<Vehicle[]>([]);
+  const [allVehicles, setAllVehicles] = useState<Vehicle[]>([]);
+
+  // Load data from shared store
+  useEffect(() => {
+    const crops = getAllCrops().filter((c) => c.farmerId === user?.id);
+    const jobs = getAllWorkerJobs().filter((j) => j.farmerId === user?.id);
+    const vehicles = getAllVehicles();
+    setMyCrops(crops);
+    setMyJobs(jobs);
+    setMyVehicles(vehicles.filter((v) => v.ownerId === user?.id));
+    setAllVehicles(vehicles);
+  }, [user?.id]);
 
   // Get crop names for price ticker
   const selectedCropNames = myCrops.map((c) => c.name.toLowerCase());
@@ -45,12 +56,14 @@ export default function FarmerDashboard() {
       status: 'available',
       createdAt: new Date(),
     };
+    addCrop(newCrop);
     setMyCrops([newCrop, ...myCrops]);
     setShowSellForm(false);
   };
 
   const handleMarkAsSold = (cropId: string) => {
     const crop = myCrops.find((c) => c.id === cropId);
+    updateCrop(cropId, { status: 'sold' });
     setMyCrops(myCrops.map((c) => (c.id === cropId ? { ...c, status: 'sold' as const } : c)));
     
     if (crop) {
@@ -77,6 +90,7 @@ export default function FarmerDashboard() {
       ...data,
       status: 'open',
     };
+    addWorkerJob(newJob);
     setMyJobs([newJob, ...myJobs]);
   };
 
@@ -100,7 +114,9 @@ export default function FarmerDashboard() {
       ...data,
       createdAt: new Date(),
     };
+    addVehicle(newVehicle);
     setMyVehicles([newVehicle, ...myVehicles]);
+    setAllVehicles([newVehicle, ...allVehicles]);
     setShowVehicleForm(false);
     toast.success('Vehicle added for rent!');
   };
@@ -240,7 +256,7 @@ export default function FarmerDashboard() {
                   </Card>
                 )}
 
-                <VehicleRentalList vehicles={mockVehicles} userLocation={user?.location} />
+                <VehicleRentalList vehicles={allVehicles} userLocation={user?.location} />
               </>
             )}
           </TabsContent>
