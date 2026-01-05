@@ -70,3 +70,40 @@ export interface CropPrice {
   date: Date;
   change: number; // percentage change from previous day
 }
+
+export interface Transaction {
+  id: string;
+  userId: string;
+  type: 'sale' | 'purchase' | 'expense' | 'income';
+  description: string;
+  amount: number;
+  quantity?: number;
+  unit?: string;
+  cropName?: string;
+  partyName?: string;
+  date: Date;
+}
+
+export interface Vehicle {
+  id: string;
+  ownerId: string;
+  ownerName: string;
+  type: 'tractor' | 'truck' | 'mini_truck' | 'harvester' | 'rotavator' | 'trailer' | 'other';
+  name: string;
+  description?: string;
+  pricePerDay: number;
+  location: string;
+  images: string[];
+  available: boolean;
+  createdAt: Date;
+}
+
+export interface VehicleRental {
+  id: string;
+  vehicleId: string;
+  renterId: string;
+  startDate: Date;
+  endDate: Date;
+  totalAmount: number;
+  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
+}
