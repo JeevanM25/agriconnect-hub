@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { DashboardHeader } from '@/components/shared/DashboardHeader';
 import { ProfitLossCard } from '@/components/shared/ProfitLossCard';
@@ -13,6 +13,7 @@ import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { mockDriverJobs } from '@/data/mockData';
+import { getAllVehicles, addVehicle } from '@/data/sharedStore';
 import { DriverJob, Transaction, Vehicle } from '@/types';
 import { Calendar, Truck, Weight, Bell, BellOff, CheckCircle, Navigation, IndianRupee, Plus } from 'lucide-react';
 import { toast } from 'sonner';
@@ -29,6 +30,12 @@ export default function DriverDashboard() {
   const [showVehicleForm, setShowVehicleForm] = useState(false);
   const [myTransactions, setMyTransactions] = useState<Transaction[]>([]);
   const [myVehicles, setMyVehicles] = useState<Vehicle[]>([]);
+
+  // Load data from shared store
+  useEffect(() => {
+    const vehicles = getAllVehicles().filter((v) => v.ownerId === user?.id);
+    setMyVehicles(vehicles);
+  }, [user?.id]);
 
   // Filter jobs by location
   const nearbyJobs = mockDriverJobs.filter(
@@ -79,6 +86,7 @@ export default function DriverDashboard() {
       ...data,
       createdAt: new Date(),
     };
+    addVehicle(newVehicle);
     setMyVehicles([newVehicle, ...myVehicles]);
     setShowVehicleForm(false);
     toast.success('Vehicle added for rent!');

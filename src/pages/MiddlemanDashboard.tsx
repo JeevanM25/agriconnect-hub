@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { DashboardHeader } from '@/components/shared/DashboardHeader';
 import { LivePriceTicker } from '@/components/shared/LivePriceTicker';
@@ -12,8 +12,9 @@ import { AddVehicleForm } from '@/components/shared/AddVehicleForm';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { mockCrops, mockCropPrices, mockWorkerJobs, mockTransactions, mockVehicles } from '@/data/mockData';
-import { WorkerJob, Transaction, Vehicle } from '@/types';
+import { mockCropPrices, mockTransactions } from '@/data/mockData';
+import { getAllCrops, getAllWorkerJobs, addWorkerJob, getAllVehicles, addVehicle } from '@/data/sharedStore';
+import { Crop, WorkerJob, Transaction, Vehicle } from '@/types';
 import { ShoppingCart, Users, IndianRupee, Tractor, Plus } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -27,6 +28,19 @@ export default function MiddlemanDashboard() {
     mockTransactions.filter((t) => t.userId === '2')
   );
   const [myVehicles, setMyVehicles] = useState<Vehicle[]>([]);
+  const [allVehicles, setAllVehicles] = useState<Vehicle[]>([]);
+  const [allCrops, setAllCrops] = useState<Crop[]>([]);
+
+  // Load data from shared store
+  useEffect(() => {
+    const crops = getAllCrops();
+    const jobs = getAllWorkerJobs().filter((j) => j.farmerId === user?.id);
+    const vehicles = getAllVehicles();
+    setAllCrops(crops);
+    setMyJobs(jobs);
+    setMyVehicles(vehicles.filter((v) => v.ownerId === user?.id));
+    setAllVehicles(vehicles);
+  }, [user?.id]);
 
   const handleAddJob = (data: any) => {
     const newJob: WorkerJob = {
@@ -35,6 +49,7 @@ export default function MiddlemanDashboard() {
       ...data,
       status: 'open',
     };
+    addWorkerJob(newJob);
     setMyJobs([newJob, ...myJobs]);
     toast.success('Job posted successfully!');
   };
@@ -59,7 +74,9 @@ export default function MiddlemanDashboard() {
       ...data,
       createdAt: new Date(),
     };
+    addVehicle(newVehicle);
     setMyVehicles([newVehicle, ...myVehicles]);
+    setAllVehicles([newVehicle, ...allVehicles]);
     setShowVehicleForm(false);
     toast.success('Vehicle added for rent!');
   };
@@ -105,7 +122,7 @@ export default function MiddlemanDashboard() {
               <h2 className="text-xl font-semibold text-foreground">Find Crops to Buy</h2>
               <p className="text-muted-foreground">Search by location and crop type</p>
             </div>
-            <CropSearch crops={mockCrops} />
+            <CropSearch crops={allCrops} />
           </TabsContent>
 
           {/* Hire Tab */}
@@ -155,7 +172,7 @@ export default function MiddlemanDashboard() {
                   </Card>
                 )}
 
-                <VehicleRentalList vehicles={mockVehicles} userLocation={user?.location} />
+                <VehicleRentalList vehicles={allVehicles} userLocation={user?.location} />
               </>
             )}
           </TabsContent>

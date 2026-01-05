@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { DashboardHeader } from '@/components/shared/DashboardHeader';
 import { ProfitLossCard } from '@/components/shared/ProfitLossCard';
@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { mockWorkerJobs } from '@/data/mockData';
+import { getAllWorkerJobs, getAllVehicles, addVehicle } from '@/data/sharedStore';
 import { WorkerJob, Transaction, Vehicle } from '@/types';
 import { MapPin, Calendar, Users, Bell, BellOff, CheckCircle, IndianRupee, Tractor, Plus } from 'lucide-react';
 import { toast } from 'sonner';
@@ -27,9 +27,18 @@ export default function WorkerDashboard() {
   const [showVehicleForm, setShowVehicleForm] = useState(false);
   const [myTransactions, setMyTransactions] = useState<Transaction[]>([]);
   const [myVehicles, setMyVehicles] = useState<Vehicle[]>([]);
+  const [allJobs, setAllJobs] = useState<WorkerJob[]>([]);
+
+  // Load data from shared store
+  useEffect(() => {
+    const jobs = getAllWorkerJobs();
+    const vehicles = getAllVehicles().filter((v) => v.ownerId === user?.id);
+    setAllJobs(jobs);
+    setMyVehicles(vehicles);
+  }, [user?.id]);
 
   // Filter jobs by location
-  const nearbyJobs = mockWorkerJobs.filter(
+  const nearbyJobs = allJobs.filter(
     (job) =>
       job.status === 'open' &&
       job.location.toLowerCase().includes(myLocation.toLowerCase().split(',')[0])
@@ -76,6 +85,7 @@ export default function WorkerDashboard() {
       ...data,
       createdAt: new Date(),
     };
+    addVehicle(newVehicle);
     setMyVehicles([newVehicle, ...myVehicles]);
     setShowVehicleForm(false);
     toast.success('Vehicle added for rent!');
