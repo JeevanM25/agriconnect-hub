@@ -1,4 +1,4 @@
-import { Crop, CropPrice, WorkerJob, DriverJob, Meeting } from '@/types';
+import { Crop, CropPrice, WorkerJob, DriverJob, Meeting, Transaction, Vehicle } from '@/types';
 
 export const mockCrops: Crop[] = [
   {
@@ -132,5 +132,94 @@ export const mockMeetings: Meeting[] = [
     time: '10:00 AM',
     status: 'pending',
     notes: 'Discussion about rice purchase',
+  },
+];
+
+export const mockTransactions: Transaction[] = [
+  {
+    id: '1',
+    userId: '1',
+    type: 'sale',
+    description: 'Sold Rice to Suresh Trader',
+    amount: 17500,
+    quantity: 500,
+    unit: 'kg',
+    cropName: 'Rice',
+    partyName: 'Suresh Trader',
+    date: new Date(Date.now() - 86400000 * 5),
+  },
+  {
+    id: '2',
+    userId: '1',
+    type: 'expense',
+    description: 'Labor charges for harvesting',
+    amount: 2500,
+    date: new Date(Date.now() - 86400000 * 3),
+  },
+  {
+    id: '3',
+    userId: '2',
+    type: 'purchase',
+    description: 'Bought Rice from Ramesh Kumar',
+    amount: 17500,
+    quantity: 500,
+    unit: 'kg',
+    cropName: 'Rice',
+    partyName: 'Ramesh Kumar',
+    date: new Date(Date.now() - 86400000 * 5),
+  },
+  {
+    id: '4',
+    userId: '2',
+    type: 'sale',
+    description: 'Sold Rice to City Mart',
+    amount: 20000,
+    quantity: 500,
+    unit: 'kg',
+    cropName: 'Rice',
+    partyName: 'City Mart',
+    date: new Date(Date.now() - 86400000 * 2),
+  },
+];
+
+export const mockVehicles: Vehicle[] = [
+  {
+    id: '1',
+    ownerId: '1',
+    ownerName: 'Ramesh Kumar',
+    type: 'tractor',
+    name: 'Mahindra 575 DI',
+    description: 'Well maintained tractor with rotavator attachment available',
+    pricePerDay: 1500,
+    location: 'Shivamogga, Karnataka',
+    images: ['https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400'],
+    available: true,
+    createdAt: new Date(),
+  },
+  {
+    id: '2',
+    ownerId: '3',
+    ownerName: 'Ganesh Driver',
+    type: 'truck',
+    name: 'Tata 407',
+    description: '10 ton capacity truck for agricultural transport',
+    pricePerDay: 3000,
+    location: 'Shivamogga, Karnataka',
+    images: ['https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400'],
+    available: true,
+    createdAt: new Date(),
+  },
+  {
+    id: '3',
+    ownerId: '5',
+    ownerName: 'Venkat Reddy',
+    type: 'harvester',
+    name: 'John Deere Harvester',
+    description: 'Combine harvester for paddy and wheat',
+    pricePerDay: 5000,
+    location: 'Tumkur, Karnataka',
+    images: ['https://images.unsplash.com/photo-1591638816268-a6c06646e3f8?w=400'],
+    available: true,
+    createdAt: new Date(),
   },
 ];
