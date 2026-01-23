@@ -2,57 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* KrishiConnect - Agricultural Marketplace Design System */
+/* FarmX - Agricultural Marketplace Design System */
 
 @layer base {
   :root {
-    /* Earthy agricultural theme */
-    --background: 45 30% 97%;
-    --foreground: 25 30% 15%;
+    /* FarmX theme - matching logo colors */
+    --background: 120 15% 97%;
+    --foreground: 140 35% 15%;
 
-    --card: 45 25% 99%;
-    --card-foreground: 25 30% 15%;
+    --card: 120 10% 99%;
+    --card-foreground: 140 35% 15%;
 
-    --popover: 45 25% 99%;
-    --popover-foreground: 25 30% 15%;
+    --popover: 120 10% 99%;
+    --popover-foreground: 140 35% 15%;
 
-    /* Primary: Rich soil brown */
-    --primary: 25 55% 35%;
+    /* Primary: Dark forest green (from logo X) */
+    --primary: 140 45% 28%;
     --primary-foreground: 45 30% 97%;
 
-    /* Secondary: Fresh green */
-    --secondary: 120 35% 45%;
+    /* Secondary: Fresh leaf green */
+    --secondary: 120 40% 38%;
     --secondary-foreground: 45 30% 97%;
 
-    /* Muted: Wheat beige */
-    --muted: 45 25% 92%;
-    --muted-foreground: 25 20% 45%;
+    /* Muted: Soft sage */
+    --muted: 120 15% 92%;
+    --muted-foreground: 140 20% 40%;
 
-    /* Accent: Golden harvest */
-    --accent: 42 85% 55%;
-    --accent-foreground: 25 30% 15%;
+    /* Accent: Golden leaves */
+    --accent: 45 70% 55%;
+    --accent-foreground: 140 35% 15%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 45 30% 97%;
 
-    --border: 45 20% 85%;
-    --input: 45 20% 85%;
-    --ring: 25 55% 35%;
+    --border: 120 15% 85%;
+    --input: 120 15% 85%;
+    --ring: 140 45% 28%;
 
     --radius: 0.75rem;
 
     /* Role-specific colors */
-    --farmer: 120 40% 40%;
+    --farmer: 140 45% 32%;
     --farmer-foreground: 45 30% 97%;
     
-    --middleman: 200 60% 45%;
+    --middleman: 200 55% 42%;
     --middleman-foreground: 45 30% 97%;
     
-    --driver: 270 50% 50%;
+    --driver: 270 45% 48%;
     --driver-foreground: 45 30% 97%;
     
-    --worker: 35 80% 50%;
-    --worker-foreground: 25 30% 15%;
+    --worker: 30 65% 45%;
+    --worker-foreground: 45 30% 97%;
 
     /* Success/Warning states */
     --success: 142 70% 40%;
@@ -61,53 +61,53 @@
     --warning: 38 92% 50%;
     --warning-foreground: 25 30% 15%;
 
-    --sidebar-background: 25 40% 20%;
+    --sidebar-background: 140 40% 18%;
     --sidebar-foreground: 45 25% 92%;
-    --sidebar-primary: 42 85% 55%;
-    --sidebar-primary-foreground: 25 30% 15%;
-    --sidebar-accent: 25 35% 28%;
+    --sidebar-primary: 45 70% 55%;
+    --sidebar-primary-foreground: 140 35% 15%;
+    --sidebar-accent: 140 35% 25%;
     --sidebar-accent-foreground: 45 25% 92%;
-    --sidebar-border: 25 30% 30%;
-    --sidebar-ring: 42 85% 55%;
+    --sidebar-border: 140 30% 25%;
+    --sidebar-ring: 45 70% 55%;
   }
 
   .dark {
-    --background: 25 30% 10%;
+    --background: 140 30% 8%;
     --foreground: 45 25% 92%;
 
-    --card: 25 28% 14%;
+    --card: 140 28% 12%;
     --card-foreground: 45 25% 92%;
 
-    --popover: 25 28% 14%;
+    --popover: 140 28% 12%;
     --popover-foreground: 45 25% 92%;
 
-    --primary: 42 75% 50%;
-    --primary-foreground: 25 30% 10%;
+    --primary: 45 70% 50%;
+    --primary-foreground: 140 30% 10%;
 
-    --secondary: 120 30% 35%;
+    --secondary: 120 35% 32%;
     --secondary-foreground: 45 25% 92%;
 
-    --muted: 25 25% 20%;
+    --muted: 140 25% 18%;
     --muted-foreground: 45 20% 65%;
 
-    --accent: 42 70% 45%;
-    --accent-foreground: 25 30% 10%;
+    --accent: 45 65% 45%;
+    --accent-foreground: 140 30% 10%;
 
     --destructive: 0 62% 45%;
     --destructive-foreground: 45 25% 92%;
 
-    --border: 25 25% 25%;
-    --input: 25 25% 25%;
-    --ring: 42 75% 50%;
+    --border: 140 25% 22%;
+    --input: 140 25% 22%;
+    --ring: 45 70% 50%;
 
-    --sidebar-background: 25 35% 12%;
+    --sidebar-background: 140 35% 10%;
     --sidebar-foreground: 45 25% 92%;
-    --sidebar-primary: 42 85% 55%;
-    --sidebar-primary-foreground: 25 30% 15%;
-    --sidebar-accent: 25 30% 18%;
+    --sidebar-primary: 45 70% 55%;
+    --sidebar-primary-foreground: 140 35% 15%;
+    --sidebar-accent: 140 30% 16%;
     --sidebar-accent-foreground: 45 25% 92%;
-    --sidebar-border: 25 25% 20%;
-    --sidebar-ring: 42 85% 55%;
+    --sidebar-border: 140 25% 18%;
+    --sidebar-ring: 45 70% 55%;
   }
 }
 
