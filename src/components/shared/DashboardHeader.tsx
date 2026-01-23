@@ -29,7 +29,7 @@ export function DashboardHeader() {
             <div className="p-2 rounded-lg bg-primary">
               <Sprout className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="text-lg font-bold text-foreground">KrishiConnect</span>
+            <span className="text-lg font-bold text-foreground">FarmX</span>
           </div>
 
           {/* User Info */}
