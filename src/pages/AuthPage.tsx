@@ -14,7 +14,7 @@ export default function AuthPage() {
           <div className="p-3 rounded-xl bg-primary">
             <Sprout className="h-8 w-8 text-primary-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground">KrishiConnect</h1>
+          <h1 className="text-3xl font-bold text-foreground">FarmX</h1>
         </div>
 
         {/* Tagline */}
