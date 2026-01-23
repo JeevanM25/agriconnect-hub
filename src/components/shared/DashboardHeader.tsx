@@ -1,8 +1,9 @@
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { LogOut, User, Sprout } from 'lucide-react';
+import { LogOut, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import farmxLogo from '@/assets/farmx-logo.png';
 
 export function DashboardHeader() {
   const { user, logout } = useAuth();
@@ -26,9 +27,7 @@ export function DashboardHeader() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-lg bg-primary">
-              <Sprout className="h-5 w-5 text-primary-foreground" />
-            </div>
+            <img src={farmxLogo} alt="FarmX Logo" className="h-10 w-10" />
             <span className="text-lg font-bold text-foreground">FarmX</span>
           </div>
 
