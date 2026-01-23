@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { RegisterForm } from '@/components/auth/RegisterForm';
-import { Sprout } from 'lucide-react';
+import farmxLogo from '@/assets/farmx-logo.png';
 
 export default function AuthPage() {
   const [mode, setMode] = useState<'login' | 'register'>('login');
@@ -11,9 +11,7 @@ export default function AuthPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center justify-center gap-3 mb-12">
-          <div className="p-3 rounded-xl bg-primary">
-            <Sprout className="h-8 w-8 text-primary-foreground" />
-          </div>
+          <img src={farmxLogo} alt="FarmX Logo" className="h-14 w-14" />
           <h1 className="text-3xl font-bold text-foreground">FarmX</h1>
         </div>
 
