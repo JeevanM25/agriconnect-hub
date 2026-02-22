@@ -34,8 +34,9 @@ export default function AuthPage() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-12 text-sm text-muted-foreground">
+        <div className="text-center mt-12 text-sm text-muted-foreground space-y-1">
           <p>🌾 Supporting Indian Agriculture 🌾</p>
+          <p className="text-xs opacity-70">Developed & Designed by Jeevan M</p>
         </div>
       </div>
     </div>
