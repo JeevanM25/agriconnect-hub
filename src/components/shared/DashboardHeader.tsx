@@ -28,7 +28,10 @@ export function DashboardHeader() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <img src={farmxLogo} alt="FarmX Logo" className="h-10 w-10" />
-            <span className="text-lg font-bold text-foreground">FarmX</span>
+            <div>
+              <span className="text-lg font-bold text-foreground block leading-tight">FarmX</span>
+              <span className="text-[10px] text-muted-foreground leading-none">by Jeevan M</span>
+            </div>
           </div>
 
           {/* User Info */}
