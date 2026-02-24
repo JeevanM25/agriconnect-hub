@@ -16,8 +16,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { mockCropPrices, mockTransactions } from '@/data/mockData';
 import { getAllCrops, addCrop, updateCrop, getAllWorkerJobs, addWorkerJob, getAllVehicles, addVehicle } from '@/data/sharedStore';
 import { Crop, WorkerJob, Transaction, Vehicle } from '@/types';
-import { ShoppingBag, Users, Plus, Package, Briefcase, IndianRupee, Tractor } from 'lucide-react';
+import { ShoppingBag, Users, Plus, Package, Briefcase, IndianRupee, Tractor, Brain } from 'lucide-react';
 import { toast } from 'sonner';
+import { SmartFarmingTools } from '@/components/farmer/SmartFarmingTools';
 
 export default function FarmerDashboard() {
   const { user } = useAuth();
@@ -136,11 +137,16 @@ export default function FarmerDashboard() {
 
         {/* Main Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6">
+          <TabsList className="grid w-full grid-cols-5 mb-6">
             <TabsTrigger value="sell" className="flex items-center gap-1 text-xs sm:text-sm">
               <ShoppingBag className="h-4 w-4" />
               <span className="hidden sm:inline">Sell Crops</span>
               <span className="sm:hidden">Sell</span>
+            </TabsTrigger>
+            <TabsTrigger value="smart" className="flex items-center gap-1 text-xs sm:text-sm">
+              <Brain className="h-4 w-4" />
+              <span className="hidden sm:inline">Smart Tools</span>
+              <span className="sm:hidden">Smart</span>
             </TabsTrigger>
             <TabsTrigger value="hire" className="flex items-center gap-1 text-xs sm:text-sm">
               <Users className="h-4 w-4" />
@@ -207,6 +213,11 @@ export default function FarmerDashboard() {
                 <MyCropsList crops={myCrops} onMarkAsSold={handleMarkAsSold} />
               </>
             )}
+          </TabsContent>
+
+          {/* Smart Tools Tab */}
+          <TabsContent value="smart" className="animate-fade-in">
+            <SmartFarmingTools />
           </TabsContent>
 
           {/* Hire Tab */}
