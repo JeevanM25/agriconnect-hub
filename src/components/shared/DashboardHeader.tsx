@@ -39,19 +39,20 @@ export function DashboardHeader() {
 
           {/* User Info */}
           <div className="flex items-center gap-4">
+            <LanguageSwitcher />
             <div className="flex items-center gap-3">
               <div className={cn('p-2 rounded-full', user?.role ? roleColors[user.role] : 'bg-primary')}>
                 <User className="h-4 w-4 text-primary-foreground" />
               </div>
               <div className="hidden sm:block">
                 <p className="text-sm font-medium text-foreground">{user?.name}</p>
-                <p className="text-xs text-muted-foreground capitalize">{user?.role}</p>
+                <p className="text-xs text-muted-foreground capitalize">{user?.role ? t(`roles.${user.role}`) : ''}</p>
               </div>
             </div>
             
             <Button variant="ghost" size="sm" onClick={handleLogout}>
               <LogOut className="h-4 w-4" />
-              <span className="hidden sm:inline ml-2">Logout</span>
+              <span className="hidden sm:inline ml-2">{t('common.logout')}</span>
             </Button>
           </div>
         </div>
