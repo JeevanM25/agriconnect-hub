@@ -1,9 +1,11 @@
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { LogOut, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import farmxLogo from '@/assets/farmx-logo.png';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function DashboardHeader() {
   const { user, logout } = useAuth();
