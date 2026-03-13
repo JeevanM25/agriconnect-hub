@@ -43,9 +43,9 @@ export default function AuthPage() {
 
         {/* Footer */}
         <div className="text-center mt-12 text-sm text-muted-foreground space-y-1">
-          <p>🌾 Supporting Indian Agriculture 🌾</p>
-          <p className="text-xs opacity-70">Idea Initiated by Jeevan M & Rihan</p>
-          <p className="text-xs opacity-70">Developed & Designed by Jeevan M</p>
+          <p>{t('footer.supporting')}</p>
+          <p className="text-xs opacity-70">{t('footer.initiatedBy')}</p>
+          <p className="text-xs opacity-70">{t('footer.developedBy')}</p>
         </div>
       </div>
     </div>
