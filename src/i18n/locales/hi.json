@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX में आपका स्वागत है",
+    "home": "होम",
+    "settings": "सेटिंग्स",
+    "profile": "प्रोफ़ाइल",
+    "logout": "लॉग आउट",
+    "login": "लॉग इन",
+    "register": "रजिस्टर",
+    "submit": "जमा करें",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "search": "खोजें",
+    "loading": "लोड हो रहा है...",
+    "language": "भाषा"
+  },
+  "auth": {
+    "loginTitle": "FarmX में लॉग इन करें",
+    "registerTitle": "खाता बनाएं",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "name": "पूरा नाम",
+    "phone": "फ़ोन नंबर",
+    "switchToRegister": "खाता नहीं है? रजिस्टर करें",
+    "switchToLogin": "पहले से खाता है? लॉग इन करें",
+    "selectRole": "अपनी भूमिका चुनें"
+  },
+  "roles": {
+    "farmer": "किसान",
+    "middleman": "बिचौलिया / डीलर",
+    "driver": "ड्राइवर",
+    "worker": "मजदूर"
+  },
+  "dashboard": {
+    "sellCrops": "फसल बेचें",
+    "myCrops": "मेरी फसलें",
+    "hireWorkers": "मजदूर किराए पर लें",
+    "transactions": "लेन-देन",
+    "profitLoss": "लाभ और हानि",
+    "vehicles": "वाहन",
+    "smartFarming": "स्मार्ट खेती",
+    "livePrices": "लाइव कीमतें",
+    "searchCrops": "फसलें खोजें",
+    "searchDrivers": "ड्राइवर खोजें",
+    "availableJobs": "उपलब्ध नौकरियां",
+    "myApplications": "मेरे आवेदन",
+    "deliveryRequests": "डिलीवरी अनुरोध"
+  },
+  "farming": {
+    "weather": "मौसम पूर्वानुमान",
+    "pricePrediction": "मूल्य भविष्यवाणी",
+    "pestAlert": "कीट चेतावनी",
+    "iotDashboard": "IoT स्मार्ट सिंचाई"
+  },
+  "tagline": "किसानों, डीलरों, ड्राइवरों और मजदूरों को बेहतर कृषि पारिस्थितिकी तंत्र से जोड़ना",
+  "footer": {
+    "supporting": "🌾 भारतीय कृषि का समर्थन 🌾",
+    "initiatedBy": "विचार जीवन एम और रिहान द्वारा शुरू किया गया",
+    "developedBy": "जीवन एम द्वारा विकसित और डिज़ाइन किया गया"
+  }
+}

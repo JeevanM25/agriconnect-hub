@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX লৈ স্বাগতম",
+    "home": "হোম",
+    "settings": "ছেটিংছ",
+    "profile": "প্ৰ'ফাইল",
+    "logout": "লগ আউট",
+    "login": "লগ ইন",
+    "register": "পঞ্জীয়ন",
+    "submit": "দাখিল কৰক",
+    "cancel": "বাতিল",
+    "save": "সংৰক্ষণ",
+    "delete": "মচক",
+    "edit": "সম্পাদনা",
+    "search": "সন্ধান",
+    "loading": "ল'ড হৈ আছে...",
+    "language": "ভাষা"
+  },
+  "auth": {
+    "loginTitle": "FarmX ত লগ ইন কৰক",
+    "registerTitle": "একাউণ্ট সৃষ্টি কৰক",
+    "email": "ইমেইল",
+    "password": "পাছৱৰ্ড",
+    "name": "সম্পূৰ্ণ নাম",
+    "phone": "ফোন নম্বৰ",
+    "switchToRegister": "একাউণ্ট নাই? পঞ্জীয়ন কৰক",
+    "switchToLogin": "ইতিমধ্যে একাউণ্ট আছে? লগ ইন কৰক",
+    "selectRole": "আপোনাৰ ভূমিকা বাছনি কৰক"
+  },
+  "roles": {
+    "farmer": "কৃষক",
+    "middleman": "মধ্যস্থতাকাৰী / ডিলাৰ",
+    "driver": "চালক",
+    "worker": "শ্ৰমিক"
+  },
+  "dashboard": {
+    "sellCrops": "শস্য বিক্ৰী",
+    "myCrops": "মোৰ শস্য",
+    "hireWorkers": "শ্ৰমিক নিযুক্তি",
+    "transactions": "লেনদেন",
+    "profitLoss": "লাভ আৰু ক্ষতি",
+    "vehicles": "বাহন",
+    "smartFarming": "স্মাৰ্ট কৃষি",
+    "livePrices": "লাইভ মূল্য",
+    "searchCrops": "শস্য সন্ধান",
+    "searchDrivers": "চালক সন্ধান",
+    "availableJobs": "উপলব্ধ চাকৰি",
+    "myApplications": "মোৰ আবেদন",
+    "deliveryRequests": "ডেলিভাৰী অনুৰোধ"
+  },
+  "farming": {
+    "weather": "বতৰ পূৰ্বানুমান",
+    "pricePrediction": "মূল্য পূৰ্বানুমান",
+    "pestAlert": "কীট সতৰ্কতা",
+    "iotDashboard": "IoT স্মাৰ্ট জলসিঞ্চন"
+  },
+  "tagline": "কৃষক, ডিলাৰ, চালক আৰু শ্ৰমিকসকলক এক উন্নত কৃষি পৰিৱেশৰ সৈতে সংযোগ",
+  "footer": {
+    "supporting": "🌾 ভাৰতীয় কৃষিক সমৰ্থন 🌾",
+    "initiatedBy": "জীৱন এম আৰু ৰিহান দ্বাৰা আৰম্ভ",
+    "developedBy": "জীৱন এম দ্বাৰা বিকশিত আৰু ডিজাইন"
+  }
+}

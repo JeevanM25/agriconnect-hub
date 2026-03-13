@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX मध्ये आपले स्वागत आहे",
+    "home": "मुख्यपृष्ठ",
+    "settings": "सेटिंग्ज",
+    "profile": "प्रोफाइल",
+    "logout": "लॉग आउट",
+    "login": "लॉग इन",
+    "register": "नोंदणी",
+    "submit": "सबमिट करा",
+    "cancel": "रद्द करा",
+    "save": "जतन करा",
+    "delete": "हटवा",
+    "edit": "संपादित करा",
+    "search": "शोधा",
+    "loading": "लोड होत आहे...",
+    "language": "भाषा"
+  },
+  "auth": {
+    "loginTitle": "FarmX मध्ये लॉग इन करा",
+    "registerTitle": "खाते तयार करा",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "name": "पूर्ण नाव",
+    "phone": "फोन नंबर",
+    "switchToRegister": "खाते नाही? नोंदणी करा",
+    "switchToLogin": "आधीच खाते आहे? लॉग इन करा",
+    "selectRole": "तुमची भूमिका निवडा"
+  },
+  "roles": {
+    "farmer": "शेतकरी",
+    "middleman": "मध्यस्थ / डीलर",
+    "driver": "चालक",
+    "worker": "मजूर"
+  },
+  "dashboard": {
+    "sellCrops": "पीक विक्री",
+    "myCrops": "माझी पिके",
+    "hireWorkers": "मजूर भाड्याने घ्या",
+    "transactions": "व्यवहार",
+    "profitLoss": "नफा आणि तोटा",
+    "vehicles": "वाहने",
+    "smartFarming": "स्मार्ट शेती",
+    "livePrices": "लाइव्ह किमती",
+    "searchCrops": "पिके शोधा",
+    "searchDrivers": "चालक शोधा",
+    "availableJobs": "उपलब्ध नोकऱ्या",
+    "myApplications": "माझे अर्ज",
+    "deliveryRequests": "डिलिव्हरी विनंत्या"
+  },
+  "farming": {
+    "weather": "हवामान अंदाज",
+    "pricePrediction": "किंमत भविष्यवाणी",
+    "pestAlert": "कीड सूचना",
+    "iotDashboard": "IoT स्मार्ट सिंचन"
+  },
+  "tagline": "शेतकरी, डीलर, चालक आणि मजूर यांना चांगल्या कृषी परिसंस्थेशी जोडणे",
+  "footer": {
+    "supporting": "🌾 भारतीय शेतीला पाठिंबा 🌾",
+    "initiatedBy": "जीवन एम आणि रिहान यांनी सुरू केले",
+    "developedBy": "जीवन एम यांनी विकसित आणि डिझाइन केले"
+  }
+}

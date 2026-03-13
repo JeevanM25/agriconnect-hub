@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX ਵਿੱਚ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ",
+    "home": "ਹੋਮ",
+    "settings": "ਸੈਟਿੰਗਾਂ",
+    "profile": "ਪ੍ਰੋਫਾਈਲ",
+    "logout": "ਲੌਗ ਆਊਟ",
+    "login": "ਲੌਗ ਇਨ",
+    "register": "ਰਜਿਸਟਰ",
+    "submit": "ਜਮ੍ਹਾਂ ਕਰੋ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "save": "ਸੰਭਾਲੋ",
+    "delete": "ਮਿਟਾਓ",
+    "edit": "ਸੰਪਾਦਿਤ ਕਰੋ",
+    "search": "ਖੋਜੋ",
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "language": "ਭਾਸ਼ਾ"
+  },
+  "auth": {
+    "loginTitle": "FarmX ਵਿੱਚ ਲੌਗ ਇਨ ਕਰੋ",
+    "registerTitle": "ਖਾਤਾ ਬਣਾਓ",
+    "email": "ਈਮੇਲ",
+    "password": "ਪਾਸਵਰਡ",
+    "name": "ਪੂਰਾ ਨਾਮ",
+    "phone": "ਫ਼ੋਨ ਨੰਬਰ",
+    "switchToRegister": "ਖਾਤਾ ਨਹੀਂ ਹੈ? ਰਜਿਸਟਰ ਕਰੋ",
+    "switchToLogin": "ਪਹਿਲਾਂ ਤੋਂ ਖਾਤਾ ਹੈ? ਲੌਗ ਇਨ ਕਰੋ",
+    "selectRole": "ਆਪਣੀ ਭੂਮਿਕਾ ਚੁਣੋ"
+  },
+  "roles": {
+    "farmer": "ਕਿਸਾਨ",
+    "middleman": "ਵਿਚੋਲਾ / ਡੀਲਰ",
+    "driver": "ਡਰਾਈਵਰ",
+    "worker": "ਮਜ਼ਦੂਰ"
+  },
+  "dashboard": {
+    "sellCrops": "ਫ਼ਸਲ ਵੇਚੋ",
+    "myCrops": "ਮੇਰੀਆਂ ਫ਼ਸਲਾਂ",
+    "hireWorkers": "ਮਜ਼ਦੂਰ ਕਿਰਾਏ 'ਤੇ ਲਓ",
+    "transactions": "ਲੈਣ-ਦੇਣ",
+    "profitLoss": "ਲਾਭ ਅਤੇ ਨੁਕਸਾਨ",
+    "vehicles": "ਵਾਹਨ",
+    "smartFarming": "ਸਮਾਰਟ ਖੇਤੀ",
+    "livePrices": "ਲਾਈਵ ਕੀਮਤਾਂ",
+    "searchCrops": "ਫ਼ਸਲ ਖੋਜੋ",
+    "searchDrivers": "ਡਰਾਈਵਰ ਖੋਜੋ",
+    "availableJobs": "ਉਪਲਬਧ ਨੌਕਰੀਆਂ",
+    "myApplications": "ਮੇਰੀਆਂ ਅਰਜ਼ੀਆਂ",
+    "deliveryRequests": "ਡਿਲੀਵਰੀ ਬੇਨਤੀਆਂ"
+  },
+  "farming": {
+    "weather": "ਮੌਸਮ ਦੀ ਭਵਿੱਖਬਾਣੀ",
+    "pricePrediction": "ਕੀਮਤ ਭਵਿੱਖਬਾਣੀ",
+    "pestAlert": "ਕੀੜੇ ਦੀ ਚੇਤਾਵਨੀ",
+    "iotDashboard": "IoT ਸਮਾਰਟ ਸਿੰਚਾਈ"
+  },
+  "tagline": "ਕਿਸਾਨਾਂ, ਡੀਲਰਾਂ, ਡਰਾਈਵਰਾਂ ਅਤੇ ਮਜ਼ਦੂਰਾਂ ਨੂੰ ਬਿਹਤਰ ਖੇਤੀ ਵਾਤਾਵਰਣ ਨਾਲ ਜੋੜਨਾ",
+  "footer": {
+    "supporting": "🌾 ਭਾਰਤੀ ਖੇਤੀ ਦਾ ਸਮਰਥਨ 🌾",
+    "initiatedBy": "ਜੀਵਨ ਐਮ ਅਤੇ ਰਿਹਾਨ ਦੁਆਰਾ ਸ਼ੁਰੂ",
+    "developedBy": "ਜੀਵਨ ਐਮ ਦੁਆਰਾ ਵਿਕਸਿਤ ਅਤੇ ਡਿਜ਼ਾਈਨ"
+  }
+}

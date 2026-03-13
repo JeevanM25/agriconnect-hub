@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "Welcome to FarmX",
+    "home": "Home",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "loading": "Loading...",
+    "language": "Language"
+  },
+  "auth": {
+    "loginTitle": "Login to FarmX",
+    "registerTitle": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "switchToRegister": "Don't have an account? Register",
+    "switchToLogin": "Already have an account? Login",
+    "selectRole": "Select Your Role"
+  },
+  "roles": {
+    "farmer": "Farmer",
+    "middleman": "Middleman / Dealer",
+    "driver": "Driver",
+    "worker": "Wage Worker"
+  },
+  "dashboard": {
+    "sellCrops": "Sell Crops",
+    "myCrops": "My Crops",
+    "hireWorkers": "Hire Workers",
+    "transactions": "Transactions",
+    "profitLoss": "Profit & Loss",
+    "vehicles": "Vehicles",
+    "smartFarming": "Smart Farming",
+    "livePrices": "Live Prices",
+    "searchCrops": "Search Crops",
+    "searchDrivers": "Search Drivers",
+    "availableJobs": "Available Jobs",
+    "myApplications": "My Applications",
+    "deliveryRequests": "Delivery Requests"
+  },
+  "farming": {
+    "weather": "Weather Forecast",
+    "pricePrediction": "Price Prediction",
+    "pestAlert": "Pest Alert",
+    "iotDashboard": "IoT Smart Irrigation"
+  },
+  "tagline": "Connecting farmers, dealers, drivers, and workers for a better agricultural ecosystem",
+  "footer": {
+    "supporting": "🌾 Supporting Indian Agriculture 🌾",
+    "initiatedBy": "Idea Initiated by Jeevan M & Rihan",
+    "developedBy": "Developed & Designed by Jeevan M"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX କୁ ସ୍ୱାଗତ",
+    "home": "ହୋମ",
+    "settings": "ସେଟିଂସ",
+    "profile": "ପ୍ରୋଫାଇଲ",
+    "logout": "ଲଗ ଆଉଟ",
+    "login": "ଲଗ ଇନ",
+    "register": "ରେଜିଷ୍ଟର",
+    "submit": "ଦାଖଲ କରନ୍ତୁ",
+    "cancel": "ବାତିଲ",
+    "save": "ସେଭ",
+    "delete": "ଡିଲିଟ",
+    "edit": "ସମ୍ପାଦନା",
+    "search": "ସନ୍ଧାନ",
+    "loading": "ଲୋଡ ହେଉଛି...",
+    "language": "ଭାଷା"
+  },
+  "auth": {
+    "loginTitle": "FarmX ରେ ଲଗ ଇନ କରନ୍ତୁ",
+    "registerTitle": "ଆକାଉଣ୍ଟ ତିଆରି କରନ୍ତୁ",
+    "email": "ଇମେଲ",
+    "password": "ପାସୱାର୍ଡ",
+    "name": "ପୁରା ନାମ",
+    "phone": "ଫୋନ ନମ୍ବର",
+    "switchToRegister": "ଆକାଉଣ୍ଟ ନାହିଁ? ରେଜିଷ୍ଟର କରନ୍ତୁ",
+    "switchToLogin": "ପୂର୍ବରୁ ଆକାଉଣ୍ଟ ଅଛି? ଲଗ ଇନ କରନ୍ତୁ",
+    "selectRole": "ଆପଣଙ୍କ ଭୂମିକା ବାଛନ୍ତୁ"
+  },
+  "roles": {
+    "farmer": "କୃଷକ",
+    "middleman": "ମଧ୍ୟସ୍ଥ / ଡିଲର",
+    "driver": "ଡ୍ରାଇଭର",
+    "worker": "ଶ୍ରମିକ"
+  },
+  "dashboard": {
+    "sellCrops": "ଫସଲ ବିକ୍ରି",
+    "myCrops": "ମୋ ଫସଲ",
+    "hireWorkers": "ଶ୍ରମିକ ଭଡ଼ା କରନ୍ତୁ",
+    "transactions": "ଲେନଦେନ",
+    "profitLoss": "ଲାଭ ଓ କ୍ଷତି",
+    "vehicles": "ଯାନ",
+    "smartFarming": "ସ୍ମାର୍ଟ ଚାଷ",
+    "livePrices": "ଲାଇଭ ଦାମ",
+    "searchCrops": "ଫସଲ ସନ୍ଧାନ",
+    "searchDrivers": "ଡ୍ରାଇଭର ସନ୍ଧାନ",
+    "availableJobs": "ଉପಲବ୍ଧ ଚାକିରୀ",
+    "myApplications": "ମୋ ଆବେଦନ",
+    "deliveryRequests": "ଡେಲ୍ଲି ବିରୀ ଅନୁରୋଧ"
+  },
+  "farming": {
+    "weather": "ପାଗ ପୂର୍ବାନୁମାନ",
+    "pricePrediction": "ଦାମ ପୂର୍ବାନୁମାନ",
+    "pestAlert": "କୀଟ ସତର୍କତା",
+    "iotDashboard": "IoT ସ୍ମାର୍ଟ ଜଳସେଚନ"
+  },
+  "tagline": "କୃଷକ, ଡିଲର, ଡ୍ରାଇଭର ଏବଂ ଶ୍ରମିକମାନଙ୍କୁ ଏକ ଉତ୍ତମ କୃଷି ପରିବେଶ ସହ ସଂଯୋଗ",
+  "footer": {
+    "supporting": "🌾 ଭାରତୀୟ କୃଷିକୁ ସମର୍ଥନ 🌾",
+    "initiatedBy": "ଜୀବନ ଏମ ଏବଂ ରିହାନ ଦ୍ୱାରା ଆରମ୍ଭ",
+    "developedBy": "ଜୀବନ ଏମ ଦ୍ୱାରା ବିକଶିତ ଓ ଡିଜାଇନ"
+  }
+}
