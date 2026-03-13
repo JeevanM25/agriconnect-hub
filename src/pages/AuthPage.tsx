@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { RegisterForm } from '@/components/auth/RegisterForm';
+import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import farmxLogo from '@/assets/farmx-logo.png';
 
 export default function AuthPage() {
