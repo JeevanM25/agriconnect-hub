@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX میں خوش آمدید",
+    "home": "ہوم",
+    "settings": "ترتیبات",
+    "profile": "پروفائل",
+    "logout": "لاگ آؤٹ",
+    "login": "لاگ ان",
+    "register": "رجسٹر",
+    "submit": "جمع کریں",
+    "cancel": "منسوخ",
+    "save": "محفوظ کریں",
+    "delete": "حذف کریں",
+    "edit": "ترمیم",
+    "search": "تلاش",
+    "loading": "لوڈ ہو رہا ہے...",
+    "language": "زبان"
+  },
+  "auth": {
+    "loginTitle": "FarmX میں لاگ ان کریں",
+    "registerTitle": "اکاؤنٹ بنائیں",
+    "email": "ای میل",
+    "password": "پاس ورڈ",
+    "name": "پورا نام",
+    "phone": "فون نمبر",
+    "switchToRegister": "اکاؤنٹ نہیں ہے؟ رجسٹر کریں",
+    "switchToLogin": "پہلے سے اکاؤنٹ ہے؟ لاگ ان کریں",
+    "selectRole": "اپنا کردار منتخب کریں"
+  },
+  "roles": {
+    "farmer": "کسان",
+    "middleman": "بیچولیہ / ڈیلر",
+    "driver": "ڈرائیور",
+    "worker": "مزدور"
+  },
+  "dashboard": {
+    "sellCrops": "فصلیں بیچیں",
+    "myCrops": "میری فصلیں",
+    "hireWorkers": "مزدور رکھیں",
+    "transactions": "لین دین",
+    "profitLoss": "نفع اور نقصان",
+    "vehicles": "گاڑیاں",
+    "smartFarming": "سمارٹ کاشتکاری",
+    "livePrices": "لائیو قیمتیں",
+    "searchCrops": "فصلیں تلاش کریں",
+    "searchDrivers": "ڈرائیور تلاش کریں",
+    "availableJobs": "دستیاب ملازمتیں",
+    "myApplications": "میری درخواستیں",
+    "deliveryRequests": "ڈیلیوری درخواستیں"
+  },
+  "farming": {
+    "weather": "موسم کی پیشگوئی",
+    "pricePrediction": "قیمت کی پیشگوئی",
+    "pestAlert": "کیڑوں کی وارننگ",
+    "iotDashboard": "IoT سمارٹ آبپاشی"
+  },
+  "tagline": "کسانوں، ڈیلروں، ڈرائیوروں اور مزدوروں کو بہتر زرعی ماحول سے جوڑنا",
+  "footer": {
+    "supporting": "🌾 ہندوستانی زراعت کی حمایت 🌾",
+    "initiatedBy": "جیون ایم اور ریحان کے ذریعے شروع کیا گیا",
+    "developedBy": "جیون ایم کے ذریعے تیار اور ڈیزائن کیا گیا"
+  }
+}

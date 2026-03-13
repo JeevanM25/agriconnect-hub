@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX માં આપનું સ્વાગત છે",
+    "home": "હોમ",
+    "settings": "સેટિંગ્સ",
+    "profile": "પ્રોફાઇલ",
+    "logout": "લોગ આઉટ",
+    "login": "લોગ ઇન",
+    "register": "રજિસ્ટર",
+    "submit": "સબમિટ કરો",
+    "cancel": "રદ કરો",
+    "save": "સાચવો",
+    "delete": "કાઢી નાખો",
+    "edit": "સંપાદિત કરો",
+    "search": "શોધો",
+    "loading": "લોડ થઈ રહ્યું છે...",
+    "language": "ભાષા"
+  },
+  "auth": {
+    "loginTitle": "FarmX માં લોગ ઇન કરો",
+    "registerTitle": "ખાતું બનાવો",
+    "email": "ઇમેઇલ",
+    "password": "પાસવર્ડ",
+    "name": "પૂરું નામ",
+    "phone": "ફોન નંબર",
+    "switchToRegister": "ખાતું નથી? રજિસ્ટર કરો",
+    "switchToLogin": "પહેલેથી ખાતું છે? લોગ ઇન કરો",
+    "selectRole": "તમારી ભૂમિકા પસંદ કરો"
+  },
+  "roles": {
+    "farmer": "ખેડૂત",
+    "middleman": "મધ્યસ્થી / ડીલર",
+    "driver": "ડ્રાઇવર",
+    "worker": "મજૂર"
+  },
+  "dashboard": {
+    "sellCrops": "પાક વેચો",
+    "myCrops": "મારા પાક",
+    "hireWorkers": "મજૂરો ભાડે રાખો",
+    "transactions": "વ્યવહારો",
+    "profitLoss": "નફો અને નુકસાન",
+    "vehicles": "વાહનો",
+    "smartFarming": "સ્માર્ટ ખેતી",
+    "livePrices": "લાઇવ ભાવ",
+    "searchCrops": "પાક શોધો",
+    "searchDrivers": "ડ્રાઇવર શોધો",
+    "availableJobs": "ઉપલબ્ધ નોકરીઓ",
+    "myApplications": "મારા અરજીઓ",
+    "deliveryRequests": "ડિલિવરી વિનંતીઓ"
+  },
+  "farming": {
+    "weather": "હવામાન આગાહી",
+    "pricePrediction": "ભાવ આગાહી",
+    "pestAlert": "જીવાત ચેતવણી",
+    "iotDashboard": "IoT સ્માર્ટ સિંચાઈ"
+  },
+  "tagline": "ખેડૂતો, ડીલરો, ડ્રાઇવરો અને મજૂરોને વધુ સારા કૃષિ પર્યાવરણ સાથે જોડવા",
+  "footer": {
+    "supporting": "🌾 ભારતીય ખેતીને ટેકો 🌾",
+    "initiatedBy": "જીવન એમ અને રિહાન દ્વારા શરૂ",
+    "developedBy": "જીવન એમ દ્વારા વિકસિત અને ડિઝાઇન કરાયેલ"
+  }
+}

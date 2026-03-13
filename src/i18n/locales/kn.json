@@ -1,0 +1,63 @@
+{
+  "common": {
+    "welcome": "FarmX ಗೆ ಸುಸ್ವಾಗತ",
+    "home": "ಮುಖಪುಟ",
+    "settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "profile": "ಪ್ರೊಫೈಲ್",
+    "logout": "ಲಾಗ್ ಔಟ್",
+    "login": "ಲಾಗಿನ್",
+    "register": "ನೋಂದಣಿ",
+    "submit": "ಸಲ್ಲಿಸಿ",
+    "cancel": "ರದ್ದುಮಾಡಿ",
+    "save": "ಉಳಿಸಿ",
+    "delete": "ಅಳಿಸಿ",
+    "edit": "ಸಂಪಾದಿಸಿ",
+    "search": "ಹುಡುಕಿ",
+    "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+    "language": "ಭಾಷೆ"
+  },
+  "auth": {
+    "loginTitle": "FarmX ಗೆ ಲಾಗಿನ್ ಮಾಡಿ",
+    "registerTitle": "ಖಾತೆ ರಚಿಸಿ",
+    "email": "ಇಮೇಲ್",
+    "password": "ಪಾಸ್‌ವರ್ಡ್",
+    "name": "ಪೂರ್ಣ ಹೆಸರು",
+    "phone": "ಫೋನ್ ಸಂಖ್ಯೆ",
+    "switchToRegister": "ಖಾತೆ ಇಲ್ಲವೇ? ನೋಂದಣಿ ಮಾಡಿ",
+    "switchToLogin": "ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ? ಲಾಗಿನ್ ಮಾಡಿ",
+    "selectRole": "ನಿಮ್ಮ ಪಾತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+  },
+  "roles": {
+    "farmer": "ರೈತ",
+    "middleman": "ಮಧ್ಯವರ್ತಿ / ಡೀಲರ್",
+    "driver": "ಚಾಲಕ",
+    "worker": "ಕೂಲಿ ಕಾರ್ಮಿಕ"
+  },
+  "dashboard": {
+    "sellCrops": "ಬೆಳೆ ಮಾರಾಟ",
+    "myCrops": "ನನ್ನ ಬೆಳೆಗಳು",
+    "hireWorkers": "ಕಾರ್ಮಿಕರನ್ನು ನೇಮಿಸಿ",
+    "transactions": "ವಹಿವಾಟುಗಳು",
+    "profitLoss": "ಲಾಭ ಮತ್ತು ನಷ್ಟ",
+    "vehicles": "ವಾಹನಗಳು",
+    "smartFarming": "ಸ್ಮಾರ್ಟ್ ಕೃಷಿ",
+    "livePrices": "ಲೈವ್ ಬೆಲೆಗಳು",
+    "searchCrops": "ಬೆಳೆ ಹುಡುಕಿ",
+    "searchDrivers": "ಚಾಲಕರನ್ನು ಹುಡುಕಿ",
+    "availableJobs": "ಲಭ್ಯ ಉದ್ಯೋಗಗಳು",
+    "myApplications": "ನನ್ನ ಅರ್ಜಿಗಳು",
+    "deliveryRequests": "ವಿತರಣೆ ವಿನಂತಿಗಳು"
+  },
+  "farming": {
+    "weather": "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ",
+    "pricePrediction": "ಬೆಲೆ ಮುನ್ಸೂಚನೆ",
+    "pestAlert": "ಕೀಟ ಎಚ್ಚರಿಕೆ",
+    "iotDashboard": "IoT ಸ್ಮಾರ್ಟ್ ನೀರಾವರಿ"
+  },
+  "tagline": "ರೈತರು, ಡೀಲರ್‌ಗಳು, ಚಾಲಕರು ಮತ್ತು ಕಾರ್ಮಿಕರನ್ನು ಉತ್ತಮ ಕೃಷಿ ಪರಿಸರಕ್ಕೆ ಸಂಪರ್ಕಿಸುವುದು",
+  "footer": {
+    "supporting": "🌾 ಭಾರತೀಯ ಕೃಷಿಯ ಬೆಂಬಲ 🌾",
+    "initiatedBy": "ಜೀವನ್ ಎಂ ಮತ್ತು ರಿಹಾನ್ ಅವರಿಂದ ಪ್ರಾರಂಭಿಸಲಾಗಿದೆ",
+    "developedBy": "ಜೀವನ್ ಎಂ ಅವಿಂದ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ"
+  }
+}
