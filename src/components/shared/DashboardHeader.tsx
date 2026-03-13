@@ -10,6 +10,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 export function DashboardHeader() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     logout();
