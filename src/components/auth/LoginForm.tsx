@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
 import { UserRole } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,6 +22,7 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleRoleSelect = (role: UserRole) => {
     setSelectedRole(role);
@@ -35,13 +37,13 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
     try {
       const success = await login(email, password, selectedRole);
       if (success) {
-        toast.success('Welcome back!');
+        toast.success(t('auth.welcomeSuccess'));
         navigate(`/dashboard/${selectedRole}`);
       } else {
-        toast.error('Invalid credentials');
+        toast.error(t('auth.invalidCredentials'));
       }
     } catch (error) {
-      toast.error('Login failed. Please try again.');
+      toast.error(t('auth.loginFailed'));
     } finally {
       setIsLoading(false);
     }
@@ -52,14 +54,14 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
       {step === 'role' ? (
         <div className="space-y-6">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground">Welcome Back</h2>
-            <p className="text-muted-foreground mt-2">Select your role to continue</p>
+            <h2 className="text-2xl font-bold text-foreground">{t('auth.welcomeBack')}</h2>
+            <p className="text-muted-foreground mt-2">{t('auth.selectRoleToContinue')}</p>
           </div>
           <RoleSelector selectedRole={selectedRole} onSelect={handleRoleSelect} />
           <p className="text-center text-sm text-muted-foreground">
-            Don't have an account?{' '}
+            {t('auth.dontHaveAccount')}{' '}
             <button onClick={onSwitchToRegister} className="text-primary font-medium hover:underline">
-              Register here
+              {t('auth.registerHere')}
             </button>
           </p>
         </div>
@@ -71,21 +73,23 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to role selection
+            {t('auth.backToRoleSelection')}
           </button>
 
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground">Login as {selectedRole}</h2>
-            <p className="text-muted-foreground mt-2">Enter your credentials</p>
+            <h2 className="text-2xl font-bold text-foreground">
+              {t('auth.loginAs', { role: selectedRole ? t(`roles.${selectedRole}`) : '' })}
+            </h2>
+            <p className="text-muted-foreground mt-2">{t('auth.enterCredentials')}</p>
           </div>
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email or Phone</Label>
+              <Label htmlFor="email">{t('auth.emailOrPhone')}</Label>
               <Input
                 id="email"
                 type="text"
-                placeholder="Enter your email or phone"
+                placeholder={t('auth.enterEmailOrPhone')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -93,11 +97,11 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t('auth.password')}</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="Enter your password"
+                placeholder={t('auth.enterPassword')}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -109,15 +113,15 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Logging in...
+                {t('auth.loggingIn')}
               </>
             ) : (
-              'Login'
+              t('common.login')
             )}
           </Button>
 
           <p className="text-center text-sm text-muted-foreground">
-            Demo: Use any email with any password
+            {t('auth.demoCredentials')}
           </p>
         </form>
       )}

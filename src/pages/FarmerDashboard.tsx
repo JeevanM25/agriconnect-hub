@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
 import { DashboardHeader } from '@/components/shared/DashboardHeader';
 import { LivePriceTicker } from '@/components/shared/LivePriceTicker';
 import { SellCropForm } from '@/components/farmer/SellCropForm';
@@ -22,6 +23,7 @@ import { SmartFarmingTools } from '@/components/farmer/SmartFarmingTools';
 
 export default function FarmerDashboard() {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('sell');
   const [showSellForm, setShowSellForm] = useState(false);
   const [showTransactionForm, setShowTransactionForm] = useState(false);
@@ -34,7 +36,6 @@ export default function FarmerDashboard() {
   const [myVehicles, setMyVehicles] = useState<Vehicle[]>([]);
   const [allVehicles, setAllVehicles] = useState<Vehicle[]>([]);
 
-  // Load data from shared store
   useEffect(() => {
     const crops = getAllCrops().filter((c) => c.farmerId === user?.id);
     const jobs = getAllWorkerJobs().filter((j) => j.farmerId === user?.id);
@@ -44,9 +45,6 @@ export default function FarmerDashboard() {
     setMyVehicles(vehicles.filter((v) => v.ownerId === user?.id));
     setAllVehicles(vehicles);
   }, [user?.id]);
-
-  // Get crop names for price ticker
-  const selectedCropNames = myCrops.map((c) => c.name.toLowerCase());
 
   const handleAddCrop = (data: any) => {
     const newCrop: Crop = {
@@ -66,13 +64,12 @@ export default function FarmerDashboard() {
     const crop = myCrops.find((c) => c.id === cropId);
     updateCrop(cropId, { status: 'sold' });
     setMyCrops(myCrops.map((c) => (c.id === cropId ? { ...c, status: 'sold' as const } : c)));
-    
     if (crop) {
       const newTransaction: Transaction = {
         id: Date.now().toString(),
         userId: user?.id || '1',
         type: 'sale',
-        description: `Sold ${crop.name}`,
+        description: t('farmer.soldCrop', { name: crop.name }),
         amount: crop.pricePerUnit * crop.quantity,
         quantity: crop.quantity,
         unit: crop.unit,
@@ -81,7 +78,7 @@ export default function FarmerDashboard() {
       };
       setMyTransactions([newTransaction, ...myTransactions]);
     }
-    toast.success('Crop marked as sold!');
+    toast.success(t('farmer.cropMarkedSold'));
   };
 
   const handleAddJob = (data: any) => {
@@ -104,7 +101,7 @@ export default function FarmerDashboard() {
     };
     setMyTransactions([newTransaction, ...myTransactions]);
     setShowTransactionForm(false);
-    toast.success('Transaction added!');
+    toast.success(t('farmer.transactionAdded'));
   };
 
   const handleAddVehicle = (data: Omit<Vehicle, 'id' | 'ownerId' | 'ownerName' | 'createdAt'>) => {
@@ -119,177 +116,140 @@ export default function FarmerDashboard() {
     setMyVehicles([newVehicle, ...myVehicles]);
     setAllVehicles([newVehicle, ...allVehicles]);
     setShowVehicleForm(false);
-    toast.success('Vehicle added for rent!');
+    toast.success(t('farmer.vehicleAdded'));
   };
 
   return (
     <div className="min-h-screen bg-background">
       <DashboardHeader />
-
       <main className="container mx-auto px-4 py-6 max-w-4xl">
-        {/* Live Price Ticker */}
         <div className="mb-6">
-          <LivePriceTicker 
-            prices={mockCropPrices} 
-            selectedCrop={myCrops[0]?.name} 
-          />
+          <LivePriceTicker prices={mockCropPrices} selectedCrop={myCrops[0]?.name} />
         </div>
 
-        {/* Main Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-5 mb-6">
             <TabsTrigger value="sell" className="flex items-center gap-1 text-xs sm:text-sm">
               <ShoppingBag className="h-4 w-4" />
-              <span className="hidden sm:inline">Sell Crops</span>
-              <span className="sm:hidden">Sell</span>
+              <span className="hidden sm:inline">{t('dashboard.sellCrops')}</span>
+              <span className="sm:hidden">{t('dashboard.sell')}</span>
             </TabsTrigger>
             <TabsTrigger value="smart" className="flex items-center gap-1 text-xs sm:text-sm">
               <Brain className="h-4 w-4" />
-              <span className="hidden sm:inline">Smart Tools</span>
-              <span className="sm:hidden">Smart</span>
+              <span className="hidden sm:inline">{t('dashboard.smartTools')}</span>
+              <span className="sm:hidden">{t('dashboard.smart')}</span>
             </TabsTrigger>
             <TabsTrigger value="hire" className="flex items-center gap-1 text-xs sm:text-sm">
               <Users className="h-4 w-4" />
-              <span className="hidden sm:inline">Hire</span>
-              <span className="sm:hidden">Hire</span>
+              <span className="hidden sm:inline">{t('dashboard.hire')}</span>
+              <span className="sm:hidden">{t('dashboard.hire')}</span>
             </TabsTrigger>
             <TabsTrigger value="machinery" className="flex items-center gap-1 text-xs sm:text-sm">
               <Tractor className="h-4 w-4" />
-              <span className="hidden sm:inline">Machinery</span>
-              <span className="sm:hidden">Rent</span>
+              <span className="hidden sm:inline">{t('dashboard.machinery')}</span>
+              <span className="sm:hidden">{t('dashboard.rent')}</span>
             </TabsTrigger>
             <TabsTrigger value="accounts" className="flex items-center gap-1 text-xs sm:text-sm">
               <IndianRupee className="h-4 w-4" />
-              <span className="hidden sm:inline">Accounts</span>
-              <span className="sm:hidden">P&L</span>
+              <span className="hidden sm:inline">{t('dashboard.accounts')}</span>
+              <span className="sm:hidden">{t('dashboard.pl')}</span>
             </TabsTrigger>
           </TabsList>
 
-          {/* Sell Crops Tab */}
           <TabsContent value="sell" className="space-y-4 animate-fade-in">
             {showSellForm ? (
               <SellCropForm onSubmit={handleAddCrop} onCancel={() => setShowSellForm(false)} />
             ) : (
               <>
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-semibold text-foreground">My Listed Crops</h2>
+                  <h2 className="text-xl font-semibold text-foreground">{t('dashboard.myListedCrops')}</h2>
                   <Button onClick={() => setShowSellForm(true)} className="bg-farmer hover:bg-farmer/90">
                     <Plus className="h-4 w-4 mr-2" />
-                    Add Crop
+                    {t('dashboard.addCrop')}
                   </Button>
                 </div>
-
-                {/* Stats */}
                 <div className="grid grid-cols-3 gap-3">
                   <Card>
                     <CardContent className="p-4 text-center">
                       <Package className="h-6 w-6 mx-auto text-farmer mb-2" />
-                      <p className="text-2xl font-bold text-foreground">
-                        {myCrops.filter((c) => c.status === 'available').length}
-                      </p>
-                      <p className="text-xs text-muted-foreground">Available</p>
+                      <p className="text-2xl font-bold text-foreground">{myCrops.filter((c) => c.status === 'available').length}</p>
+                      <p className="text-xs text-muted-foreground">{t('common.available')}</p>
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4 text-center">
                       <Briefcase className="h-6 w-6 mx-auto text-warning mb-2" />
-                      <p className="text-2xl font-bold text-foreground">
-                        {myCrops.filter((c) => c.status === 'in_discussion').length}
-                      </p>
-                      <p className="text-xs text-muted-foreground">In Discussion</p>
+                      <p className="text-2xl font-bold text-foreground">{myCrops.filter((c) => c.status === 'in_discussion').length}</p>
+                      <p className="text-xs text-muted-foreground">{t('dashboard.inDiscussion')}</p>
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4 text-center">
                       <ShoppingBag className="h-6 w-6 mx-auto text-success mb-2" />
-                      <p className="text-2xl font-bold text-foreground">
-                        {myCrops.filter((c) => c.status === 'sold').length}
-                      </p>
-                      <p className="text-xs text-muted-foreground">Sold</p>
+                      <p className="text-2xl font-bold text-foreground">{myCrops.filter((c) => c.status === 'sold').length}</p>
+                      <p className="text-xs text-muted-foreground">{t('dashboard.sold')}</p>
                     </CardContent>
                   </Card>
                 </div>
-
                 <MyCropsList crops={myCrops} onMarkAsSold={handleMarkAsSold} />
               </>
             )}
           </TabsContent>
 
-          {/* Smart Tools Tab */}
           <TabsContent value="smart" className="animate-fade-in">
             <SmartFarmingTools />
           </TabsContent>
 
-          {/* Hire Tab */}
           <TabsContent value="hire" className="animate-fade-in">
-            <HireSection
-              userRole="farmer"
-              myJobs={myJobs}
-              onAddJob={handleAddJob}
-            />
+            <HireSection userRole="farmer" myJobs={myJobs} onAddJob={handleAddJob} />
           </TabsContent>
 
-          {/* Machinery Tab */}
           <TabsContent value="machinery" className="space-y-4 animate-fade-in">
             {showVehicleForm ? (
-              <AddVehicleForm
-                onSubmit={handleAddVehicle}
-                onCancel={() => setShowVehicleForm(false)}
-                userRole="farmer"
-              />
+              <AddVehicleForm onSubmit={handleAddVehicle} onCancel={() => setShowVehicleForm(false)} userRole="farmer" />
             ) : (
               <>
                 <div className="flex items-center justify-between">
                   <div>
-                    <h2 className="text-xl font-semibold text-foreground">Rent Machinery</h2>
-                    <p className="text-muted-foreground text-sm">Find tractors, harvesters & more</p>
+                    <h2 className="text-xl font-semibold text-foreground">{t('dashboard.rentMachinery')}</h2>
+                    <p className="text-muted-foreground text-sm">{t('dashboard.findTractorsAndMore')}</p>
                   </div>
                   <Button onClick={() => setShowVehicleForm(true)} className="bg-farmer hover:bg-farmer/90">
                     <Plus className="h-4 w-4 mr-2" />
-                    List Your Vehicle
+                    {t('dashboard.listYourVehicle')}
                   </Button>
                 </div>
-
-                {/* My Vehicles */}
                 {myVehicles.length > 0 && (
                   <Card className="mb-4">
                     <CardContent className="p-4">
-                      <h3 className="font-semibold mb-2">My Vehicles for Rent</h3>
+                      <h3 className="font-semibold mb-2">{t('dashboard.myVehiclesForRent')}</h3>
                       <div className="space-y-2">
                         {myVehicles.map((v) => (
                           <div key={v.id} className="flex items-center justify-between p-2 bg-muted rounded">
                             <span className="capitalize">{v.name} ({v.type.replace('_', ' ')})</span>
-                            <span className="text-farmer font-bold">₹{v.pricePerDay}/day</span>
+                            <span className="text-farmer font-bold">₹{v.pricePerDay}/{t('common.perDay')}</span>
                           </div>
                         ))}
                       </div>
                     </CardContent>
                   </Card>
                 )}
-
                 <VehicleRentalList vehicles={allVehicles} userLocation={user?.location} />
               </>
             )}
           </TabsContent>
 
-          {/* Accounts Tab */}
           <TabsContent value="accounts" className="space-y-4 animate-fade-in">
             <ProfitLossCard transactions={myTransactions} userRole="farmer" />
-
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">Transactions</h2>
+              <h2 className="text-xl font-semibold text-foreground">{t('dashboard.transactions')}</h2>
               <Button onClick={() => setShowTransactionForm(true)} className="bg-farmer hover:bg-farmer/90">
                 <Plus className="h-4 w-4 mr-2" />
-                Add Transaction
+                {t('dashboard.addTransaction')}
               </Button>
             </div>
-
             {showTransactionForm ? (
-              <AddTransactionForm
-                onSubmit={handleAddTransaction}
-                onCancel={() => setShowTransactionForm(false)}
-                userRole="farmer"
-              />
+              <AddTransactionForm onSubmit={handleAddTransaction} onCancel={() => setShowTransactionForm(false)} userRole="farmer" />
             ) : (
               <TransactionList transactions={myTransactions} />
             )}

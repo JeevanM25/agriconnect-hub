@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
 import { UserRole } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,6 +28,7 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { register } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleRoleSelect = (role: UserRole) => {
     setSelectedRole(role);
@@ -42,7 +44,7 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
     if (!selectedRole) return;
 
     if (formData.password !== formData.confirmPassword) {
-      toast.error('Passwords do not match');
+      toast.error(t('auth.passwordMismatch'));
       return;
     }
 
@@ -60,13 +62,13 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
       );
 
       if (success) {
-        toast.success('Registration successful!');
+        toast.success(t('auth.registrationSuccess'));
         navigate(`/dashboard/${selectedRole}`);
       } else {
-        toast.error('Registration failed');
+        toast.error(t('auth.registrationFailed'));
       }
     } catch (error) {
-      toast.error('Registration failed. Please try again.');
+      toast.error(t('auth.registrationFailed'));
     } finally {
       setIsLoading(false);
     }
@@ -77,14 +79,14 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
       {step === 'role' ? (
         <div className="space-y-6">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground">Create Account</h2>
-            <p className="text-muted-foreground mt-2">Select your role to get started</p>
+            <h2 className="text-2xl font-bold text-foreground">{t('auth.createAccount')}</h2>
+            <p className="text-muted-foreground mt-2">{t('auth.selectRoleToStart')}</p>
           </div>
           <RoleSelector selectedRole={selectedRole} onSelect={handleRoleSelect} />
           <p className="text-center text-sm text-muted-foreground">
-            Already have an account?{' '}
+            {t('auth.alreadyHaveAccount')}{' '}
             <button onClick={onSwitchToLogin} className="text-primary font-medium hover:underline">
-              Login here
+              {t('auth.loginHere')}
             </button>
           </p>
         </div>
@@ -96,89 +98,40 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to role selection
+            {t('auth.backToRoleSelection')}
           </button>
 
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground capitalize">Register as {selectedRole}</h2>
-            <p className="text-muted-foreground mt-2">Fill in your details</p>
+            <h2 className="text-2xl font-bold text-foreground capitalize">
+              {t('auth.registerAs', { role: selectedRole ? t(`roles.${selectedRole}`) : '' })}
+            </h2>
+            <p className="text-muted-foreground mt-2">{t('auth.fillDetails')}</p>
           </div>
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name</Label>
-              <Input
-                id="name"
-                name="name"
-                placeholder="Enter your full name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+              <Label htmlFor="name">{t('auth.name')}</Label>
+              <Input id="name" name="name" placeholder={t('auth.enterFullName')} value={formData.name} onChange={handleChange} required />
             </div>
-
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+              <Label htmlFor="email">{t('auth.email')}</Label>
+              <Input id="email" name="email" type="email" placeholder={t('auth.enterEmail')} value={formData.email} onChange={handleChange} required />
             </div>
-
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone Number</Label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="+91 XXXXXXXXXX"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
+              <Label htmlFor="phone">{t('auth.phone')}</Label>
+              <Input id="phone" name="phone" type="tel" placeholder={t('auth.phonePlaceholder')} value={formData.phone} onChange={handleChange} required />
             </div>
-
             <div className="space-y-2">
-              <Label htmlFor="location">Location</Label>
-              <Input
-                id="location"
-                name="location"
-                placeholder="City, State"
-                value={formData.location}
-                onChange={handleChange}
-                required
-              />
+              <Label htmlFor="location">{t('common.location')}</Label>
+              <Input id="location" name="location" placeholder={t('auth.locationPlaceholder')} value={formData.location} onChange={handleChange} required />
             </div>
-
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Create a password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
+              <Label htmlFor="password">{t('auth.password')}</Label>
+              <Input id="password" name="password" type="password" placeholder={t('auth.createPassword')} value={formData.password} onChange={handleChange} required />
             </div>
-
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
-              <Input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                placeholder="Confirm your password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-              />
+              <Label htmlFor="confirmPassword">{t('auth.confirmPassword')}</Label>
+              <Input id="confirmPassword" name="confirmPassword" type="password" placeholder={t('auth.confirmYourPassword')} value={formData.confirmPassword} onChange={handleChange} required />
             </div>
           </div>
 
@@ -186,10 +139,10 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Creating account...
+                {t('auth.creatingAccount')}
               </>
             ) : (
-              'Create Account'
+              t('auth.createAccount')
             )}
           </Button>
         </form>

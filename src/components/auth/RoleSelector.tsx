@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { UserRole } from '@/types';
 import { Tractor, Briefcase, Truck, HardHat } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -7,37 +8,19 @@ interface RoleSelectorProps {
   onSelect: (role: UserRole) => void;
 }
 
-const roles: { role: UserRole; label: string; icon: React.ReactNode; description: string }[] = [
-  {
-    role: 'farmer',
-    label: 'Farmer',
-    icon: <Tractor className="h-8 w-8" />,
-    description: 'Sell your crops directly',
-  },
-  {
-    role: 'middleman',
-    label: 'Dealer',
-    icon: <Briefcase className="h-8 w-8" />,
-    description: 'Buy crops from farmers',
-  },
-  {
-    role: 'driver',
-    label: 'Driver',
-    icon: <Truck className="h-8 w-8" />,
-    description: 'Transport goods',
-  },
-  {
-    role: 'worker',
-    label: 'Worker',
-    icon: <HardHat className="h-8 w-8" />,
-    description: 'Find farm work',
-  },
-];
-
 export function RoleSelector({ selectedRole, onSelect }: RoleSelectorProps) {
+  const { t } = useTranslation();
+
+  const roles: { role: UserRole; icon: React.ReactNode }[] = [
+    { role: 'farmer', icon: <Tractor className="h-8 w-8" /> },
+    { role: 'middleman', icon: <Briefcase className="h-8 w-8" /> },
+    { role: 'driver', icon: <Truck className="h-8 w-8" /> },
+    { role: 'worker', icon: <HardHat className="h-8 w-8" /> },
+  ];
+
   return (
     <div className="grid grid-cols-2 gap-4">
-      {roles.map(({ role, label, icon, description }) => (
+      {roles.map(({ role, icon }) => (
         <button
           key={role}
           onClick={() => onSelect(role)}
@@ -71,8 +54,8 @@ export function RoleSelector({ selectedRole, onSelect }: RoleSelectorProps) {
           >
             {icon}
           </div>
-          <span className="font-semibold text-lg">{label}</span>
-          <span className="text-sm text-muted-foreground text-center mt-1">{description}</span>
+          <span className="font-semibold text-lg">{t(`roles.${role}`)}</span>
+          <span className="text-sm text-muted-foreground text-center mt-1">{t(`roles.${role}Desc`)}</span>
         </button>
       ))}
     </div>
